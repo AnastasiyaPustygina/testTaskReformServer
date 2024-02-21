@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 21-02-2024--0001-user
+      author: apustygina
+      preConditions:
+        not:
+          tableExists:
+            tableName: users
+      createTable:
+        tableName: users
+        columns:
+          - column:
+              name: id
+              type: bigint
+              autoIncrement: true
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_user
+          - column:
+              name: name
+              type: varchar(200)
+              constraints:
+                nullable: false
+          - column:
+              name: email
+              type: varchar(200)
+              constraints:
+                nullable: false
+                unique: true
+          - column:
+              name: password
+              type: varchar(200)
+              constraints:
+                nullable: false
+          - column:
+              name: avg_speed
+              type: double(2)
+              constraints:
+                nullable: false

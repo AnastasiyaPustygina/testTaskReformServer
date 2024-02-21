@@ -1,0 +1,4 @@
+FROM openjdk:19
+COPY /target/testTaskReform-1.0-SNAPSHOT.jar /testTaskReform.jar
+EXPOSE 8082
+ENTRYPOINT ["java", "-jar", "/testTaskReform.jar"]

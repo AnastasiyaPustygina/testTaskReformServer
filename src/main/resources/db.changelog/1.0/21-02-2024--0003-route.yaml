@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: 21-02-2024--0003-route
+      author: apustygina
+      preConditions:
+        not:
+          tableExists:
+            tableName: route
+      createTable:
+        tableName: route
+        columns:
+          - column:
+              name: id
+              type: bigint
+              autoIncrement: true
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_route
+          - column:
+              name: user_id
+              type: bigint
+              constraints:
+                nullable: false
+                foreignKeyName: fk_route_user
+                references: users(id)
+                deleteCascade: true
+          - column:
+              name: address_to_id
+              type: bigint
+              constraints:
+                nullable: false
+                foreignKeyName: fk_route_address_to
+                references: address(id)
+                deleteCascade: true
+          - column:
+              name: address_from_id
+              type: bigint
+              constraints:
+                nullable: false
+                foreignKeyName: fk_route_address_from
+                references: address(id)
+                deleteCascade: true

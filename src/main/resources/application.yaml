@@ -1,0 +1,18 @@
+server:
+  port: 8089
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:db.changelog/db.changelog-master.yml
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test-task-reform
+    username: reform_user
+    password: reform_user_pass
+    driver-class-name: org.postgresql.Driver
+    jpa:
+      showsql: true
+      database: postgresql
+      generate-ddl: false
+      database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+      hibernate:
+        ddl-auto: none
